@@ -1,0 +1,26 @@
+[package]
+name = "sunshine"
+version = "1.0.0"
+edition = "2018"
+authors = ["Michael Williams <michael.williams@enspiral.com>"]
+description = "Morning sunrise on a cloudy day"
+license = "AGPL-3.0"
+repository = "https://github.com/sunrise-choir/sunshine"
+readme = "README.md"
+keywords = []
+
+[badges]
+travis-ci = { repository = "ahdinosaur/nest" }
+
+[package.metadata.release]
+no-dev-version = true
+pre-release-commit-message = "release {{crate_name}}: {{version}} 🌄"
+pre-release-hook = ["cargo", "test"]
+pre-release-replacements = [
+  { file="src/lib.rs", search="https://docs.rs/{{crate_name}}/[a-z0-9\\.-]+", replace="https://docs.rs/{{crate_name}}/{{version}}" }
+]
+
+[dependencies]
+
+[dev-dependencies]
+version-sync = "0.8"
